@@ -1,16 +1,58 @@
 ---
+import "../styles/global.css"
 
+const posts = [
+    {
+        title: "Building a Terminal UI in the Browser",
+        date: "2024-01-15",
+        excerpt:
+            "Exploring the aesthetics of modern technical interfaces and how to bring them to life on the web with thoughtful UI & micro-interactions.",
+        slug: "terminal-ui-browser",
+    },
+    {
+        title: "The Art of Minimal Design",
+        date: "2024-01-10",
+        excerpt:
+            "How minimalism and clarity improve developer tools and publication design — practical patterns for readable interfaces.",
+        slug: "minimal-design",
+    },
+    {
+        title: "Monospaced Fonts and Typography",
+        date: "2024-01-05",
+        excerpt:
+            "Choosing the right monospace for code and UI, and how to pair it with humanist sans serifs for long-form reading.",
+        slug: "monospaced-fonts",
+    },
+]
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Pedro Cattori</title>
+    </head>
+
+    <body>
+        <header class="border-l border-ink">
+            <h1 class="px-4 py-2 border-b">PEDRO CATTORI</h1>
+            <nav class="px-4 py-1 border-b text-xs font-light space-x-2">
+                <a href="/">HOME</a>
+                <span>|</span>
+                <a href="/about">ABOUT</a>
+                <span>|</span>
+                <a href="/contact">BOOKMARKS</a>
+            </nav>
+        </header>
+        <main class="border-l border-ink py-8 space-y-8">
+            {
+                posts.map((post) => (
+                    <article class="border-t border-b-2 border-r-2 px-4 py-3 w-fit space-y-1">
+                        <p>{post.title}</p>
+                        <p class="text-xs">{post.excerpt}</p>
+                    </article>
+                ))
+            }
+        </main>
+    </body>
 </html>
