@@ -1,9 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-    /*--color-cream: oklch(98.473 0.464 3.929);*/
     --color-cream: oklch(0.987 0.0107 76.6);
     --color-ink: oklch(0.2708 0.0423 289.23);
+    --color-pencil: oklch(0.4597 0.0629 289.56);
+    --color-pine: oklch(0.4909 0.077 228);
+    --color-muted: oklch(0.6734 0.0268 298.37);
+
+    --font-roboto:
+        "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 /* https://www.joshwcomeau.com/css/full-bleed/ */

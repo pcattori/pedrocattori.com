@@ -34,25 +34,38 @@ const posts = [
     </head>
 
     <body>
-        <header class="border-l border-ink">
-            <h1 class="px-4 py-2 border-b">PEDRO CATTORI</h1>
-            <nav class="px-4 py-1 border-b text-xs font-light space-x-2">
-                <a href="/">HOME</a>
-                <span>|</span>
-                <a href="/about">ABOUT</a>
-                <span>|</span>
-                <a href="/contact">BOOKMARKS</a>
+        <header class="border-l border-ink font-roboto">
+            <h1 class="px-4 py-2 border-b border-dashed">PEDRO CATTORI</h1>
+            <nav
+                class="px-4 py-2 border-b border-dashed text-xs font-light space-x-6"
+            >
+                <a class="text-pine underline" href="/">/HOME</a>
+                <a class="text-muted" href="/about">/ABOUT</a>
+                <a class="text-muted" href="/bookmarks">/BOOKMARKS</a>
             </nav>
         </header>
-        <main class="border-l border-ink py-8 space-y-8">
-            {
-                posts.map((post) => (
-                    <article class="border-t border-b-2 border-r-2 px-4 py-3 w-fit space-y-1">
-                        <p>{post.title}</p>
-                        <p class="text-xs">{post.excerpt}</p>
-                    </article>
-                ))
-            }
+        <main class="border-l border-ink py-8">
+            <ul class="space-y-8">
+                {
+                    posts.map((post) => (
+                        <li>
+                            <article class="border-t border-b-2 border-r-2 px-4 py-3 w-fit">
+                                <a
+                                    href={`/posts/${post.slug}`}
+                                    class="space-y-1"
+                                >
+                                    <p class="text-xl font-roboto font-semibold">
+                                        {post.title}
+                                    </p>
+                                    <p class="text-xs text-pencil">
+                                        {post.excerpt}
+                                    </p>
+                                </a>
+                            </article>
+                        </li>
+                    ))
+                }
+            </ul>
         </main>
     </body>
 </html>
