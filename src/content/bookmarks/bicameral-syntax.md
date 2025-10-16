@@ -1,6 +1,7 @@
 ---
 title: Bicameral Syntax
 link: https://parentheticallyspeaking.org/articles/bicameral-not-homoiconic/
+author: Shriram Krishnamurthi
 ---
 
 When working on a new programming language, start with a tree-like abstract syntax (ala Lisp).
