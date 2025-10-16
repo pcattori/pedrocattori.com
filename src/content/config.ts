@@ -16,6 +16,7 @@ const bookmarks = defineCollection({
   schema: z.object({
     title: z.string(),
     link: z.string().url(),
+    author: z.string().optional(),
   }),
 })
 
