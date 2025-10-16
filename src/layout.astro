@@ -1,0 +1,43 @@
+---
+import "./style.css"
+
+let pathname = new URL(Astro.request.url).pathname
+let isActive = (href: string) => href === pathname
+
+let links = [
+  { href: "/", text: "/HOME" },
+  { href: "/about", text: "/ABOUT" },
+  { href: "/bookmarks", text: "/BOOKMARKS" },
+]
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pedro Cattori</title>
+  </head>
+
+  <body>
+    <header class="border-l border-ink font-roboto">
+      <h1 class="px-4 py-2 border-b border-dashed">PEDRO CATTORI</h1>
+      <nav
+        class="px-4 py-2 border-b border-dashed text-xs font-light space-x-6"
+      >
+        {
+          links.map((link) => (
+            <a
+              class={isActive(link.href) ? "text-pine underline" : "text-muted"}
+              href={link.href}
+            >
+              {link.text}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+    <main class="border-l border-ink">
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+---
+import Layout from "../../layout.astro"
+import { getPosts } from "../../lib/posts"
+
+export async function getStaticPaths() {
+  let posts = await getPosts()
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+let { post } = Astro.props
+let { Content } = await post.render()
+---
+
+<Layout>
+  <article class="mt-4 prose px-4">
+    <header>
+      <h1>{post.title}</h1>
+      <time datetime={post.publishedAt.toISOString()}>
+        {post.publishedAt}
+      </time>
+    </header>
+    <Content />
+  </article>
+</Layout>

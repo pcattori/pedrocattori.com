@@ -1,71 +1,23 @@
 ---
-import "../styles/global.css"
+import Layout from "../layout.astro"
+import { getPosts } from "../lib/posts"
 
-const posts = [
-    {
-        title: "Building a Terminal UI in the Browser",
-        date: "2024-01-15",
-        excerpt:
-            "Exploring the aesthetics of modern technical interfaces and how to bring them to life on the web with thoughtful UI & micro-interactions.",
-        slug: "terminal-ui-browser",
-    },
-    {
-        title: "The Art of Minimal Design",
-        date: "2024-01-10",
-        excerpt:
-            "How minimalism and clarity improve developer tools and publication design — practical patterns for readable interfaces.",
-        slug: "minimal-design",
-    },
-    {
-        title: "Monospaced Fonts and Typography",
-        date: "2024-01-05",
-        excerpt:
-            "Choosing the right monospace for code and UI, and how to pair it with humanist sans serifs for long-form reading.",
-        slug: "monospaced-fonts",
-    },
-]
+const posts = await getPosts()
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Pedro Cattori</title>
-    </head>
-
-    <body>
-        <header class="border-l border-ink font-roboto">
-            <h1 class="px-4 py-2 border-b border-dashed">PEDRO CATTORI</h1>
-            <nav
-                class="px-4 py-2 border-b border-dashed text-xs font-light space-x-6"
-            >
-                <a class="text-pine underline" href="/">/HOME</a>
-                <a class="text-muted" href="/about">/ABOUT</a>
-                <a class="text-muted" href="/bookmarks">/BOOKMARKS</a>
-            </nav>
-        </header>
-        <main class="border-l border-ink py-8">
-            <ul class="space-y-8">
-                {
-                    posts.map((post) => (
-                        <li>
-                            <article class="border-t border-b-2 border-r-2 px-4 py-3 w-fit">
-                                <a
-                                    href={`/posts/${post.slug}`}
-                                    class="space-y-1"
-                                >
-                                    <p class="text-xl font-roboto font-semibold">
-                                        {post.title}
-                                    </p>
-                                    <p class="text-xs text-pencil">
-                                        {post.excerpt}
-                                    </p>
-                                </a>
-                            </article>
-                        </li>
-                    ))
-                }
-            </ul>
-        </main>
-    </body>
-</html>
+<Layout>
+  <ul class="mt-8 space-y-8">
+    {
+      posts.map((post) => (
+        <li>
+          <article class="border-t border-b-2 border-r-2 px-4 py-3 w-fit">
+            <a href={`/posts/${post.slug}`} class="space-y-1">
+              <p class="text-xl font-roboto font-semibold">{post.title}</p>
+              <p class="text-xs text-pencil">{post.description}</p>
+            </a>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
