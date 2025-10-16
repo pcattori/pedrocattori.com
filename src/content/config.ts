@@ -11,4 +11,12 @@ const posts = defineCollection({
   }),
 })
 
-export const collections = { posts }
+const bookmarks = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    link: z.string().url(),
+  }),
+})
+
+export const collections = { posts, bookmarks }

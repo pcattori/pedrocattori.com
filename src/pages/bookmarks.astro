@@ -1,0 +1,41 @@
+---
+import Layout from "../layout.astro"
+import { getCollection } from "astro:content"
+
+const bookmarks = await getCollection("bookmarks")
+---
+
+<Layout>
+  <ul class="mt-8 space-y-8">
+    {
+      bookmarks.map(async (bookmark) => {
+        const { Content } = await bookmark.render()
+        return (
+          <li>
+            <details class="group border-t border-b-2 border-r-2 py-3 w-fit">
+              <summary class="px-4 flex cursor-pointer items-center">
+                <a
+                  href={bookmark.data.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 class="font-semibold underline">{bookmark.data.title}</h2>
+                </a>
+                <span class="ml-8 text-pencil text-xs italic group-open:hidden">
+                  Show notes
+                </span>
+                <span class="ml-8 text-pencil text-xs italic hidden group-open:inline">
+                  Hide notes
+                </span>
+              </summary>
+
+              <section class="mt-3 px-4 prose text-xs">
+                <Content />
+              </section>
+            </details>
+          </li>
+        )
+      })
+    }
+  </ul>
+</Layout>
