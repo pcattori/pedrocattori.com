@@ -13,7 +13,7 @@ const bookmarks = await getCollection("bookmarks")
         return (
           <li>
             <details class="group border-t border-b-2 border-r-2 py-3 w-fit">
-              <summary class="px-4 flex cursor-pointer items-center">
+              <summary class="px-4 flex cursor-pointer items-baseline">
                 <a
                   href={bookmark.data.link}
                   target="_blank"
@@ -21,6 +21,11 @@ const bookmarks = await getCollection("bookmarks")
                 >
                   <h2 class="font-semibold underline">{bookmark.data.title}</h2>
                 </a>
+                {bookmark.data.author && (
+                  <p class="ml-2 text-muted text-xs">
+                    by {bookmark.data.author}
+                  </p>
+                )}
                 {bookmark.body === undefined ? null : (
                   <>
                     <span class="ml-8 text-pencil text-xs italic group-open:hidden">
