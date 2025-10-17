@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layout.astro"
 import { getPosts } from "../../lib/posts"
+import FormattedDate from "../../lib/formatted-date.astro"
 
 export async function getStaticPaths() {
   let posts = await getPosts()
@@ -18,9 +19,10 @@ let { Content } = await post.render()
   <article class="mt-4 prose px-4">
     <header>
       <h1>{post.title}</h1>
-      <time datetime={post.publishedAt.toISOString()}>
-        {post.publishedAt}
-      </time>
+      <p class="text-xs text-muted italic">
+        Published on
+        <FormattedDate date={post.publishedAt} format="long" />
+      </p>
     </header>
     <Content />
   </article>

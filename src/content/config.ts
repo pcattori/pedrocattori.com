@@ -6,7 +6,9 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     publishedAt: z.preprocess((arg) => {
-      if (typeof arg === "string") return new Date(arg)
+      console.log({ arg, type: typeof arg })
+      if (arg instanceof Date) return arg
+      if (typeof arg === "string") return Date.parse(arg)
     }, z.date()),
   }),
 })
