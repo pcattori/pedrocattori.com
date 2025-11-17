@@ -1,0 +1,138 @@
+---
+import Layout from "../layout.astro"
+import FormattedDate from "../lib/formatted-date.astro"
+
+type Talk = {
+  title: string
+  link: string
+  venue?: string
+  date: string
+}
+
+const talks: Talk[] = [
+  {
+    title: "What the heck is HMR anyway?",
+    link: "https://www.youtube.com/watch?v=e5M_5jKPaL4",
+    venue: "Remix Bay Area",
+    date: "2023-11-29",
+  },
+  {
+    title: "Into the Compiler-verse",
+    link: "https://www.youtube.com/live/O2FleUlJIoo?t=920s",
+    venue: "Remix NYC",
+    date: "2023-11-08",
+  },
+  {
+    title: "Remix Vite announcement panel",
+    link: "https://www.youtube.com/watch?v=qyo5of7EDjY",
+    date: "2023-10-21",
+  },
+  {
+    title: "Legendary DX",
+    link: "https://www.youtube.com/watch?v=79M4vYZi-po",
+    venue: "Remix Conf",
+    date: "2023-05-11",
+  },
+]
+
+const decisionDocs = [
+  {
+    title: "Type inference",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0012-type-inference.md"
+  },
+  {
+    title: "Splitting up client and server code in Vite",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0010-splitting-up-client-and-server-code-in-vite.md",
+  },
+  {
+    title: "Do not rely on treeshaking for correctness",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0009-do-not-rely-on-treeshaking-for-correctness.md",
+  },
+  {
+    title: "Only support JS conversion for app code",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0008-only-support-js-conversion-for-app-code.md"
+  },
+  {
+    title: "Type inference for useLoaderData & useActionData",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0003-infer-types-for-useloaderdata-and-useactiondata-from-loader-and-action-via-generics.md",
+  },
+  {
+    title: "Use NPM to manage dependencies for Deno",
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md",
+  },
+]
+
+const externalPosts = [
+  {
+    title: "Remix Vite is Now Stable",
+    link: "https://remix.run/blog/remix-vite-stable",
+  },
+  {
+    title: "Remix ❤️  Vite",
+    link: "https://remix.run/blog/remix-heart-vite",
+  },
+  {
+    title: "Migrate from Webpack to Remix",
+    link: "https://remix.run/blog/migrate-from-webpack",
+  },
+]
+
+---
+
+<Layout>
+  <article class="mt-4 prose px-4">
+    <h2>Hello, world! I'm Pedro.</h2>
+
+    <p>
+      I joined the Remix team in early 2022 and we were acquired by Shopify shortly after.
+    </p>
+    <p>
+      In late 2023, Mark Dalgeish and I spearheaded our transition to Vite.
+      That work was featured by <a href="https://www.youtube.com/watch?v=XaNqdlfVF-M&t=1400s">Google's Chrome for Developers</a> and in the <a href="https://youtu.be/bmWQqAKLgT4?t=1947">Vite documentary</a>.
+    </p>
+    <p>
+    Today, I continue to work on Remix 3 and React Router, focusing on type safety, route pattern matching, Hot Module Replacement, and more.
+    </p>
+
+    <p>
+      Before that, I worked at <a href="https://tamr.com">Tamr</a> as part of the machine learning team.
+      I, along with my collaborators, received a <a href="https://patents.justia.com/patent/12242982">patent for cluster-based supervised training with big data</a>.
+    </p>
+
+    <section>
+      <h3>Talks</h3>
+      <ul>
+        {talks.map(talk => (
+          <li>
+            <a href={talk.link}>{talk.title}</a>
+            <span class="ml-2 text-muted text-xs">
+              <FormattedDate date={new Date(talk.date)} format="short" />
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h3>Decision docs</h3>
+      <ul>
+        {decisionDocs.map(({ title, link}) => (
+          <li>
+            <a href={link}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h3>External posts</h3>
+      <ul>
+        {externalPosts.map(({ title, link}) => (
+          <li>
+            <a href={link}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</Layout>
