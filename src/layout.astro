@@ -2,7 +2,7 @@
 import "./style.css"
 
 let pathname = new URL(Astro.request.url).pathname
-let isActive = (href: string) => href === pathname
+let isActive = (href: string) => href === pathname || href === pathname.replace(/\/$/, "")
 
 let links = [
   { href: "/", text: "/HOME" },
