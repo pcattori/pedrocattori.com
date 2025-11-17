@@ -1,6 +1,6 @@
 ---
 title: Just JavaScript
-description: Is React Router just JavaScript? What about React or Remix 3?
+description: If refactors break things, it ain't just JavaScript
 publishedAt: 2025-11-17
 ---
 
