@@ -10,6 +10,7 @@ import tailwindcss from "@tailwindcss/vite"
 // } from "@shikijs/transformers"
 
 export default defineConfig({
+  site: "https://pedrocattori.com",
   markdown: {
     shikiConfig: {
       theme: "rose-pine-moon",
