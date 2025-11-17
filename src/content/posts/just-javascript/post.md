@@ -1,4 +1,8 @@
-# Just JavaScript
+---
+title: Just JavaScript
+description: Is React Router just JavaScript? What about React or Remix 3?
+publishedAt: 2025-11-17
+---
 
 Everyone means something different when they say something is "just JavaScript".
 
