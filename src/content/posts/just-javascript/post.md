@@ -115,6 +115,13 @@ Personally, I'm happy to see that React is exploring what can be done with custo
 Maybe those directives will become as ubiquitous as TypeScript, maybe not.
 Either way is fine by me.
 
+It actually goes back much further than directives.
+When hooks were introduced, [Rules of Hooks](https://react.dev/warnings/invalid-hook-call-warning) — semantics beyond "just JavaScript" — came with them.
+I get that hooks are implemented with JavaScript and I get _why_ hooks behave the way they do.
+But they're still a paradigm that means that simple refactors — like moving a hook into a conditional — can break your code.
+
+Again, I'm not saying hooks are bad, but rather that a "just JavaScript" mental model isn't enough to program confidently with them.
+
 ### Remix 3
 
 Is Remix 3 just JavaScript? Yes.
