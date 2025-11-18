@@ -13,9 +13,24 @@ export async function getStaticPaths() {
 
 let { post } = Astro.props
 let { Content } = await post.render()
+let ogImageURL = new URL(`/og/${post.slug}.png`, Astro.site)
 ---
 
-<Layout>
+<head>
+  <!-- Open Graph -->
+  <meta property="og:title" content={post.title} />
+  <meta property="og:description" content={post.description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:type" content="article" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={post.title} />
+  <meta name="twitter:description" content={post.description} />
+  <meta name="twitter:image" content={ogImageURL} />
+</head>
+
+<Layout title={post.title} description={post.description}>
   <article class="mt-4 prose px-4">
     <header>
       <h1>{post.title}</h1>
