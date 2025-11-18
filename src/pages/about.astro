@@ -38,7 +38,7 @@ const talks: Talk[] = [
 const decisionDocs = [
   {
     title: "Type inference",
-    link: "https://github.com/remix-run/react-router/blob/main/decisions/0012-type-inference.md"
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0012-type-inference.md",
   },
   {
     title: "Splitting up client and server code in Vite",
@@ -50,7 +50,7 @@ const decisionDocs = [
   },
   {
     title: "Only support JS conversion for app code",
-    link: "https://github.com/remix-run/react-router/blob/main/decisions/0008-only-support-js-conversion-for-app-code.md"
+    link: "https://github.com/remix-run/react-router/blob/main/decisions/0008-only-support-js-conversion-for-app-code.md",
   },
   {
     title: "Type inference for useLoaderData & useActionData",
@@ -76,7 +76,6 @@ const externalPosts = [
     link: "https://remix.run/blog/migrate-from-webpack",
   },
 ]
-
 ---
 
 <Layout>
@@ -84,54 +83,70 @@ const externalPosts = [
     <h2>Hello, world! I'm Pedro.</h2>
 
     <p>
-      I joined the Remix team in early 2022 and we were acquired by Shopify shortly after.
+      I joined the Remix team in early 2022 and we were acquired by Shopify
+      shortly after.
     </p>
     <p>
-      In late 2023, Mark Dalgeish and I spearheaded our transition to Vite.
-      That work was featured by <a href="https://www.youtube.com/watch?v=XaNqdlfVF-M&t=1400s">Google's Chrome for Developers</a> and in the <a href="https://youtu.be/bmWQqAKLgT4?t=1947">Vite documentary</a>.
+      In late 2023, Mark Dalgleish and I spearheaded our transition to Vite.
+      That work was featured by <a
+        href="https://www.youtube.com/watch?v=XaNqdlfVF-M&t=1400s"
+        >Google's Chrome for Developers</a
+      > and in the <a href="https://youtu.be/bmWQqAKLgT4?t=1947"
+        >Vite documentary</a
+      >.
     </p>
     <p>
-    Today, I continue to work on Remix 3 and React Router, focusing on type safety, route pattern matching, Hot Module Replacement, and more.
+      Today, I continue to work on Remix 3 and React Router, focusing on type
+      safety, route pattern matching, Hot Module Replacement, and more.
     </p>
 
     <p>
-      Before that, I worked at <a href="https://tamr.com">Tamr</a> as part of the machine learning team.
-      I, along with my collaborators, received a <a href="https://patents.justia.com/patent/12242982">patent for cluster-based supervised training with big data</a>.
+      Before that, I worked at <a href="https://tamr.com">Tamr</a> as part of the
+      machine learning team. I, along with my collaborators, received a <a
+        href="https://patents.justia.com/patent/12242982"
+        >patent for cluster-based supervised training with big data</a
+      >.
     </p>
 
     <section>
       <h3>Talks</h3>
       <ul>
-        {talks.map(talk => (
-          <li>
-            <a href={talk.link}>{talk.title}</a>
-            <span class="ml-2 text-muted text-xs">
-              <FormattedDate date={new Date(talk.date)} format="short" />
-            </span>
-          </li>
-        ))}
+        {
+          talks.map((talk) => (
+            <li>
+              <a href={talk.link}>{talk.title}</a>
+              <span class="ml-2 text-muted text-xs">
+                <FormattedDate date={new Date(talk.date)} format="short" />
+              </span>
+            </li>
+          ))
+        }
       </ul>
     </section>
 
     <section>
       <h3>Decision docs</h3>
       <ul>
-        {decisionDocs.map(({ title, link}) => (
-          <li>
-            <a href={link}>{title}</a>
-          </li>
-        ))}
+        {
+          decisionDocs.map(({ title, link }) => (
+            <li>
+              <a href={link}>{title}</a>
+            </li>
+          ))
+        }
       </ul>
     </section>
 
     <section>
       <h3>External posts</h3>
       <ul>
-        {externalPosts.map(({ title, link}) => (
-          <li>
-            <a href={link}>{title}</a>
-          </li>
-        ))}
+        {
+          externalPosts.map(({ title, link }) => (
+            <li>
+              <a href={link}>{title}</a>
+            </li>
+          ))
+        }
       </ul>
     </section>
   </article>
