@@ -17,6 +17,10 @@ const roboto = await fetch(
   "https://api.fontsource.org/v1/fonts/roboto/latin-400-normal.ttf",
 ).then((res) => res.arrayBuffer())
 
+const robotoBold = await fetch(
+  "https://api.fontsource.org/v1/fonts/roboto/latin-700-normal.ttf",
+).then((res) => res.arrayBuffer())
+
 const colors = {
   cream: "#fffaf3",
   ink: "#26233a",
@@ -46,7 +50,6 @@ export async function GET({
             props: {
               style: {
                 height: "100%",
-                width: "100%",
                 marginLeft: 96,
                 borderLeft: `solid 4px ${colors.ink}`,
                 display: "flex",
@@ -62,6 +65,7 @@ export async function GET({
                       borderBottom: `solid 4px ${colors.ink}`,
                       padding: 48,
                       fontSize: 70,
+                      fontWeight: "semi-bold",
                       color: colors.ink,
                       margin: 0,
                       lineHeight: 1.2,
@@ -97,6 +101,12 @@ export async function GET({
           name: "Roboto",
           data: roboto,
           weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Roboto",
+          data: robotoBold,
+          weight: 700,
           style: "normal",
         },
       ],
