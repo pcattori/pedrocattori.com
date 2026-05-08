@@ -1,0 +1,60 @@
+---
+import Layout from "../layout.astro"
+
+let uses = {
+  Config: [
+    { name: "pcattori/dotfiles", link: "https://github.com/pcattori/dotfiles" },
+  ],
+
+  // Apps
+  Dictation: [{ name: "VoiceInk", link: "https://tryvoiceink.com/" }],
+  Windowing: [{ name: "Rectangle", link: "https://rectangleapp.com/" }],
+  Editor: [
+    { name: "Zed", link: "https://zed.dev/" },
+    { name: "Neovim", link: "https://neovim.io/" },
+  ],
+  Terminal: [{ name: "Ghostty", link: "https://ghostty.org/" }],
+
+  // Styling
+  Theme: [{ name: "Rosé Pine", link: "https://rosepinetheme.com/" }],
+  Font: [{ name: "MonoLisa", link: "https://www.monolisa.dev/" }],
+
+  // Hardware
+  Keyboard: [
+    {
+      name: "Logitech ERGO K860",
+      link: "https://www.logitech.com/en-us/shop/p/k860-split-ergonomic",
+    },
+  ],
+  Mouse: [
+    {
+      name: "Logitech MX Vertical",
+      link: "https://www.logitech.com/en-us/shop/p/mx-vertical-ergonomic-mouse",
+    },
+  ],
+}
+---
+
+<Layout>
+  <ul class="mt-8 space-y-8">
+    {
+      Object.entries(uses).map(([category, items]) => (
+        <li class="group border-t border-b-2 border-r-2 py-3 w-fit">
+          <div class="px-4 flex">
+            <strong class="mr-2">{category}:</strong>
+            {items.map((item, i) => {
+              return (
+                <>
+                  {i === 0 ? null : <span>&nbsp;or&nbsp;</span>}
+                  <a class="underline" href={item.link}>
+                    {item.name}
+                  </a>
+                </>
+              )
+            })}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
